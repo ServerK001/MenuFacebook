@@ -1,4 +1,8 @@
 import './index.css';
+import { ReactComponent as BellIcon } from './icons/bell.svg';
+import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
+import { ReactComponent as CaretIcon } from './icons/caret.svg';
+import { ReactComponent as PlusIcon } from './icons/plus.svg';
 import { ReactComponent as CogIcon } from './icons/cog.svg';
 import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
@@ -79,15 +83,22 @@ function DropdownMenu() {
         classNames="menu-primary"
         unmountOnExit
         onEnter={calcHeight}>
-
-        <div className="menu">       
+          
+        <div className="menu">
+          <DropdownItem>My Profile</DropdownItem>
           <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}
             goToMenu="settings">
-            Habilidades
+            Settings
           </DropdownItem>
-          
+          <DropdownItem
+            leftIcon="🦧"
+            rightIcon={<ChevronIcon />}
+            goToMenu="animals">
+            Animals
+          </DropdownItem>
+
         </div>
       </CSSTransition>
 
@@ -99,16 +110,31 @@ function DropdownMenu() {
         onEnter={calcHeight}>
         <div className="menu">
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
-            <h2>Voltar</h2>
+            <h2>My Tutorial</h2>
           </DropdownItem>
           <DropdownItem leftIcon={<BoltIcon />}>HTML</DropdownItem>
           <DropdownItem leftIcon={<BoltIcon />}>CSS</DropdownItem>
           <DropdownItem leftIcon={<BoltIcon />}>JavaScript</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>React</DropdownItem>
+          <DropdownItem leftIcon={<BoltIcon />}>Awesome!</DropdownItem>
         </div>
       </CSSTransition>
 
-     
+      <CSSTransition
+        in={activeMenu === 'animals'}
+        timeout={500}
+        classNames="menu-secondary"
+        unmountOnExit
+        onEnter={calcHeight}>
+        <div className="menu">
+          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
+            <h2>Animals</h2>
+          </DropdownItem>
+          <DropdownItem leftIcon="🦘">Kangaroo</DropdownItem>
+          <DropdownItem leftIcon="🐸">Frog</DropdownItem>
+          <DropdownItem leftIcon="🦋">Horse?</DropdownItem>
+          <DropdownItem leftIcon="🦔">Hedgehog</DropdownItem>
+        </div>
+      </CSSTransition>
     </div>
   );
 }
