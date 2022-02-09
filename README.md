@@ -1,6 +1,8 @@
 ## Dropdown Menu Inspirado no Facebook
-
+<div style="padding:1rem; background-color:#dadce1">
 <img src="https://github.com/ServerK001/MenuFacebook/blob/main/MenuFace.gif"/>
+</div>
+
 
 Use git clone +  URL do Projeto paea clonalo
 <br />
